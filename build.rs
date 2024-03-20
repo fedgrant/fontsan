@@ -49,11 +49,13 @@ fn build_brotli() {
 
 fn build_woff2() {
     let woff2_dir = Path::new("src/deps/woff2/src");
-    let file_names = ["table_tags.cc",
-    "variable_length.cc",
-    "woff2_common.cc",
-    "woff2_dec.cc",
-    "woff2_out.cc"];
+    let file_names = [
+        "table_tags.cc",
+        "variable_length.cc",
+        "woff2_common.cc",
+        "woff2_dec.cc",
+        "woff2_out.cc",
+    ];
     let woff2_sources = file_names.iter().map(|name| woff2_dir.join(name));
 
     cc::Build::new()
@@ -71,7 +73,6 @@ fn build_ots_glue() {
         .std("c++11")
         .compile("ots_glue");
 }
-
 
 fn main() {
     build_lz4();
